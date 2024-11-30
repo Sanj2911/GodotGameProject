@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3nenwxkgbodu"]
+
+[ext_resource type="Script" path="res://paused_menu.gd" id="1_64f4k"]
+
+[node name="PausedMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_64f4k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 0.00012207
+offset_top = -7.99997
+offset_right = 40.0001
+offset_bottom = 32.0
+scale = Vector2(48.2419, 27.1145)
+color = Color(0.254902, 0.254902, 0.254902, 0.580392)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -92.0
+offset_right = 57.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 15
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused !"
+
+[node name="Resume" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="Quit" type="Button" parent="GridContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="GridContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy2uxsb6j7ors"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_vblcv"]
+[ext_resource type="Texture2D" uid="uid://cfv3yiyo6uhhx" path="res://forest.jpg" id="1_wg8qr"]
+[ext_resource type="Texture2D" uid="uid://i4cjdwy1kcoj" path="res://icon.png" id="2_jfs63"]
+
+[sub_resource type="Theme" id="Theme_j1i2b"]
+
+[sub_resource type="SystemFont" id="SystemFont_0y4c1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5w2j0"]
+
+[sub_resource type="Theme" id="Theme_4ddhn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_035xj"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vblcv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 1912.52
+offset_bottom = 1088.0
+texture = ExtResource("1_wg8qr")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 440.0
+offset_right = -400.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_j1i2b")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.945098, 0.976471, 0.992157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.764706)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 100
+text = "Happy Boo's  >>> Adventure"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.858824, 0.305882, 0.545098, 1)
+theme_override_fonts/font = SubResource("SystemFont_0y4c1")
+theme_override_font_sizes/font_size = 50
+text = "Play Game
+"
+icon = SubResource("CanvasTexture_5w2j0")
+flat = true
+
+[node name="Separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/Play"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = -18.0
+offset_right = 120.0
+offset_bottom = -18.0
+
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_4ddhn")
+theme_override_colors/font_color = Color(0.278431, 0.47451, 0.901961, 1)
+theme_override_colors/icon_normal_color = Color(0.137255, 0.709804, 0.690196, 1)
+theme_override_fonts/font = SubResource("SystemFont_0y4c1")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+icon = SubResource("CanvasTexture_035xj")
+flat = true
+icon_alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(718, 712)
+scale = Vector2(1.40625, 1.375)
+texture = ExtResource("2_jfs63")

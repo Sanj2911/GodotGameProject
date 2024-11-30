@@ -1,0 +1,219 @@
+[gd_scene load_steps=10 format=3 uid="uid://fvex6m6qfl1f"]
+
+[ext_resource type="PackedScene" uid="uid://d130qh58vuqcu" path="res://player.tscn" id="1_kn5of"]
+[ext_resource type="Script" path="res://survivors_game.gd" id="1_l4gjo"]
+[ext_resource type="Texture2D" uid="uid://dtaibf6x4v3ii" path="res://riv.jpg" id="2_jciyd"]
+[ext_resource type="PackedScene" uid="uid://b1uqhurv5bgii" path="res://pine_tree.tscn" id="2_mraiv"]
+[ext_resource type="Script" path="res://GameUI.gd" id="4_fipuq"]
+[ext_resource type="PackedScene" uid="uid://c3nenwxkgbodu" path="res://paused_menu.tscn" id="6_bybdw"]
+[ext_resource type="PackedScene" uid="uid://gfwa6yttq5bu" path="res://apple.tscn" id="7_72l7c"]
+
+[sub_resource type="Curve2D" id="Curve2D_m6six"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -78, 88, 0, 0, 0, 0, -94, 1280, 0, 0, 0, 0, 957.059, 1324.19, 0, 0, 0, 0, 2018, 1296, 0, 0, 0, 0, 2031.3, 644.282, 0, 0, 0, 0, 1986, 72, 0, 0, 0, 0, -78, 88)
+}
+point_count = 7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xccp"]
+size = Vector2(1930, 221)
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(-42, -96)
+script = ExtResource("1_l4gjo")
+
+[node name="Player" parent="." instance=ExtResource("1_kn5of")]
+position = Vector2(960, 643)
+slide_on_ceiling = false
+platform_floor_layers = 4294967043
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-849.903, -613.374)
+scale = Vector2(0.905284, 0.838533)
+curve = SubResource("Curve2D_m6six")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-78, 88)
+rotation = 1.58422
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 1922.0
+offset_bottom = 1091.0
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+show_behind_parent = true
+clip_children = 2
+light_mask = 3
+visibility_layer = 3
+position = Vector2(960.5, 534.5)
+scale = Vector2(2.06587, 3.00278)
+texture = ExtResource("2_jciyd")
+region_filter_clip_enabled = true
+
+[node name="PineTree3" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(423.973, 54.4736)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree8" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(115.306, 68.6842)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(-384.946, 49.7368)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree2" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(-353.015, -21.3158)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree9" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(377.851, 75.7895)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree7" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(-267.866, 35.5263)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree6" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(-217.308, 71.3487)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree5" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(239.483, 75.7895)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="PineTree4" parent="CanvasLayer/Background" instance=ExtResource("2_mraiv")]
+position = Vector2(296.249, 85.2632)
+scale = Vector2(0.443487, 0.296053)
+disable_mode = 2
+input_pickable = true
+
+[node name="GameUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_left = -0.008
+anchor_top = 0.126
+anchor_right = -0.008
+anchor_bottom = 0.126
+offset_left = 18.36
+offset_top = -134.08
+offset_right = 1939.36
+offset_bottom = 944.92
+script = ExtResource("4_fipuq")
+
+[node name="Score" type="Label" parent="CanvasLayer/GameUI"]
+modulate = Color(0.00392157, 0.00392157, 0.00392157, 1)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 329.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Score : 0"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+offset_left = -31.0
+offset_right = 1930.0
+offset_bottom = 1099.0
+color = Color(0, 0, 0, 0.513726)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.5
+offset_top = -106.5
+offset_right = 672.5
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 156
+text = "Game Over !"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 383.0
+offset_bottom = 421.0
+
+[node name="River" type="Area2D" parent="."]
+position = Vector2(114, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="River"]
+position = Vector2(889, 1062)
+shape = SubResource("RectangleShape2D_1xccp")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu" parent="CanvasLayer2" instance=ExtResource("6_bybdw")]
+
+[node name="collectible" type="Node" parent="."]
+
+[node name="Apple1" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(354, 503)
+
+[node name="Apple2" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(69, 474)
+
+[node name="Apple3" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(1730, 116)
+
+[node name="Apple4" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(57, 764)
+
+[node name="Apple5" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(1763, 589)
+
+[node name="Apple6" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(1119, 806)
+
+[node name="Apple7" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(556, 170)
+
+[node name="Apple8" parent="collectible" instance=ExtResource("7_72l7c")]
+position = Vector2(1377, 198)
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="River" to="." method="_on_river_body_entered"]
+[connection signal="collected" from="collectible/Apple1" to="Player" method="_on_apple_collected"]
+[connection signal="collected" from="collectible/Apple2" to="Player" method="_on_apple_2_collected"]
+[connection signal="collected" from="collectible/Apple3" to="Player" method="_on_apple_3_collected"]
+[connection signal="collected" from="collectible/Apple4" to="Player" method="_on_apple_4_collected"]
+[connection signal="collected" from="collectible/Apple5" to="Player" method="_on_apple_5_collected"]
+[connection signal="collected" from="collectible/Apple6" to="Player" method="_on_apple_6_collected"]
+[connection signal="collected" from="collectible/Apple7" to="Player" method="_on_apple_7_collected"]
+[connection signal="collected" from="collectible/Apple8" to="Player" method="_on_apple_8_collected"]

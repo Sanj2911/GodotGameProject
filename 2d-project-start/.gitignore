@@ -1,0 +1,17 @@
+# Ignore Godot-specific folders
+.godot/
+2d-project-start/.godot/
+
+# Ignore imported files (these can be regenerated)
+*.import/
+
+# Ignore build/export folders
+export/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore editor-related folders
+.vscode/
+.idea/

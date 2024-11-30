@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bjshgnr0pjn5p"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1928.0
+offset_bottom = 1067.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 673.0
+offset_right = 1089.0
+offset_bottom = 795.0
+
+[node name="FinalScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 349.0
+offset_right = 952.0
+offset_bottom = 547.0
+
+[node name="HighScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 292.0
+offset_right = 938.0
+offset_bottom = 458.0
